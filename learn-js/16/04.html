@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>연습문제</title>
+  </head>
+  <body id="body">
+    <h1 id="target">기존 제목</h1>
+    <h2 id="h2">배경색을 변경하세요.</h2>
+    <p id="p">이 문단에 클래스를 추가하세요.</p>
+    <p id="rmP">삭제할 요소입니다.</p>
+    <ul>
+      <li>기존 항목</li>
+    </ul>
+    <a href="#">링크</a>
+    <div id="pb9">기존 텍스트</div>
+    <div id="content"></div>
+    <p id="pb11">이 요소의 부모를 찾고 배경색을 변경하세요.</p>
+
+    <p>첫 번째 문단</p>
+    <p>두 번째 문단</p>
+
+    <script>
+      //문제 1
+      document.getElementById("target").innerText = "Hello, DOM!";
+
+      //문제 2
+      const newDiv = document.createElement("div");
+      newDiv.textContent = "새로운 콘텐츠";
+      const parent = document.getElementById("body");
+      parent.appendChild(newDiv);
+
+      //document.forms
+      //document.body
+      //document.querySelector("body")
+
+      //문제 3
+      const p = document.getElementById("p");
+      p.classList.add("highlight");
+
+      //문제 4
+      p.classList.remove("highlight");
+
+      //문제 5
+      const h2 = document.getElementById("h2");
+      h2.style.backgroundColor = "yellow";
+
+      //문제 6
+      const newLi = document.createElement("li");
+      newLi.textContent = "새로운 항목";
+      const ul = document.querySelector("li").parentNode;
+      ul.appendChild(newLi);
+
+      //문제 7
+      const a = document.querySelector("a");
+      a.innerHTML = `<a href="https://www.example.com">링크</a>`;
+
+      //문제 8
+      document.getElementById("rmP").remove();
+
+      //문제 9
+      document.getElementById("pb9").innerText = "새로운 텍스트";
+
+      //문제 10
+      const newElHTML = `
+        <div class="card">
+        <h3>카드 제목</h3>
+        <p>카드 내용</p>
+        </div>
+      `;
+      document.getElementById("content").innerHTML = newElHTML;
+
+      //문제 11
+      const p2 = document.getElementById("pb11").parentElement; //parentNode;
+      p2.style.backgroundColor = "lightgray";
+
+      //문제 12
+      const newLi2 = document.createElement("li");
+      newLi2.innerText = "첫 번째 항목";
+
+      const firstChild = document.querySelector("ul").firstChild;
+      //const firstChild = document.querySelector("ul").firstElementChild;
+      //const firstChild = document.querySelector("li:nth-child(1)")
+      document.querySelector("ul").insertBefore(newLi2, firstChild);
+
+      //문제 13
+      // const pEls = document.querySelectorAll("p");
+      // pEls.forEach((element) => {
+      //   element.innerText = "모든 문단의 텍스트";
+      // });
+    </script>
+  </body>
+</html>

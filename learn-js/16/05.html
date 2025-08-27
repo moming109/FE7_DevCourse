@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>문제 1</title>
+  </head>
+  <body>
+    <div>첫 번째 div</div>
+    <div>두 번째 div</div>
+    <div id="main-content">이것은 메인 콘텐츠입니다.</div>
+
+    <div>
+      <p>본문 내용</p>
+      <span>이것은 span입니다</span>
+    </div>
+
+    <p>이것은 p 요소입니다.</p>
+    <div>이것은 div 요소입니다.</div>
+
+    <h2>헤딩 1</h2>
+    <h2>헤딩 2</h2>
+    <h2>헤딩 3</h2>
+
+    <div id="container">
+      <p>자식 요소 1</p>
+      <span>자식 요소 2</span>
+    </div>
+
+    <div data-role="admin">관리자</div>
+    <div data-role="user">사용자</div>
+    <div data-role="admin">관리자 2</div>
+
+    <div>관리자</div>
+    <div>사용자</div>
+    <div>게스트</div>
+
+    <ul>
+      <li>항목 1</li>
+      <li>항목 2</li>
+      <li>항목 3</li>
+    </ul>
+
+    <script>
+      //1
+      const divEl = document.querySelector("div");
+      console.log(divEl);
+      //2
+      const mainEl = document.querySelector("#main-content");
+      console.log(mainEl);
+      //3
+      const itemEl = document.querySelectorAll(".item");
+      console.log(itemEl);
+      //4
+      const spanEl = document.querySelector("span");
+      const parentEl = spanEl.parentElement;
+      console.log(parentEl);
+      //5
+      const pEl = document.querySelector("p");
+      const pSiblingEl = pEl.nextElementSibling;
+      console.log(pSiblingEl);
+
+      //6
+      // const h2Els = document.querySelectorAll("h2");
+      const h2Els = document.getElementsByTagName("h2");
+      console.log(h2Els);
+
+      //7
+      const divEl2 = document.getElementById("container");
+      const children = divEl2.children;
+      console.log(children);
+
+      //8
+      const adminEl = document.querySelectorAll("[data-role='admin']");
+      console.log(adminEl);
+
+      //9
+      const divEls = document.querySelectorAll("div");
+      const convertToArray = Array.from(divEls);
+      const findDivEl = convertToArray.find(
+        (div) => div.innerText === "사용자"
+      );
+      console.log(findDivEl);
+
+      //10
+      console.log(document.querySelector("li:nth-child(2)"));
+    </script>
+  </body>
+</html>

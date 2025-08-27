@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li>하나</li>
+      <li id="target"></li>
+      <li>/Li></li>
+    </ul>
+
+    <script>
+      const liEl = document.querySelector("#target");
+      liEl.setAttribute("class", "big"); //기존의 있는 속성의 값을 덮어버림.
+      liEl.classList.add("big"); //기본에 있는 속성 보존
+      liEl.classList.toggle("red"); //있으면 빼고, 없으면 넣기.
+
+      liEl.style.color = "red";
+      liEl.style.textDecoration = "line-through";
+
+      liEl.setAttribute("class", "big"); //("속성명", "바꿀 값")
+      liEl.removeAttribute("style"); //("속성명")
+      console.log(liEl.getAttribute("class"));
+
+      //요소 찾기
+      // console.log(liEl.parentNode);
+      // console.log(liEl.previousSibling);
+      // console.log(liEl.previousElementSibling);
+      // console.log(liEl.nextSibling);
+      // console.log(liEl.nextElementSibling);
+    </script>
+  </body>
+</html>
