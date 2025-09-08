@@ -53,3 +53,7 @@ console.log(p2); // 위 아래 결과가 동일하다
 console.log(p2.greet2());
 console.log(p2.sucoding);
 console.log(p2.getInfo());
+
+let arr = ["10", "식물"]
+console.log(String(parseInt(arr[0])+10));
+console.log(`${arr[0]}:${arr[1]}`);

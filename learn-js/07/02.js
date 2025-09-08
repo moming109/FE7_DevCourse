@@ -53,13 +53,13 @@ function outer() {
   let count = 0;
   return () => ++count;
 }
-const counter1 = outer();
+let counter1 = outer();
 console.log(counter1()); // 1
 console.log(counter1()); // 2
 counter1 = null;
 
 //이미 죽어있는 counter1의 outer를 불러오는 것이 아닌, 새로운 outer를 만들기 때문에 독립적으로 유지된다.
-const counter2 = outer();
+let counter2 = outer();
 console.log(counter2()); // 1
 console.log(counter2()); // 2
 console.log(counter2()); // 3

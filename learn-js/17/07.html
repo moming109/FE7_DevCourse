@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 연습문제</title>
+    <style></style>
+  </head>
+  <body>
+    <p id="text">원래 텍스트</p>
+    <button id="changeTextButton">텍스트 변경</button>
+
+    <button id="changeColorButton">배경색 변경</button>
+
+    <input type="text" id="itemInput" placeholder="새 항목 입력" />
+    <button id="addItemButton">항목 추가</button>
+    <ul id="itemList"></ul>
+    <script>
+      //문제 1
+      document
+        .querySelector("#changeTextButton")
+        .addEventListener("click", function () {
+          document.querySelector("#text").innerText = "바뀐 텍스트";
+        });
+
+      //문제 2
+      document
+        .querySelector("#changeColorButton")
+        .addEventListener("click", function () {
+          document.body.style.backgroundColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+        });
+      //문제 3
+      document
+        .querySelector("#addItemButton")
+        .addEventListener("click", function () {});
+    </script>
+  </body>
+</html>

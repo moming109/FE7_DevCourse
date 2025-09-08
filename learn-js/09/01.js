@@ -65,7 +65,7 @@ console.dir(p1.freeze()); //freeze는 constructor 객체에 있는 속성. 프�
 //자바스크립트의 모든 자료형은 Object로 부터 파생된다.
 
 function Developer(name, age, skill) {
-  Person.call(this, nema, age);
+  Person.call(this, name, age);
   this.name = name;
   this.age = age;
   this.skill = skill;

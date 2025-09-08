@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>이벤트</h1>
+    <botton>클릭</botton>
+    <botton id="cancel">이벤트 해제</botton>
+    <script>
+      const target = document.querySelector("botton");
+      const cancelBtn = document.querySelector("#cancel");
+
+      target.addEventListener("click", function () {
+        console.log("클릭");
+      });
+
+      target.addEventListener("mouseentter", function () {
+        console.log("mouseentter");
+      });
+
+      target.addEventListener("mouseleave", function () {
+        this.style.color = "red"; //이벤트가 적용된 곳에 적용
+        console.log("mouseleave");
+      });
+
+      target.addEventListener = () => {
+        //this 사용하지 않음.
+        console.log(this); //윈도우를 가리킴
+        console.log("mouseleave");
+      };
+
+      target.removeEventListener("mouseentter", mouseEnterHandler);
+      target.removeEventListener("mouseleave", mouseLeaveHandler);
+
+      cancelBtn.addEventListener("click", function () {
+        target.removeEventListener("mouseentter", mouseEnterHandler);
+        target.removeEventListener("mouseleave", mouseLeaveHandler);
+      });
+    </script>
+  </body>
+</html>

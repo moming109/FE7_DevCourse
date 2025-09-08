@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트 버블링 & 캡처링 예제</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .box {
+        padding: 20px;
+        border: 2px solid black;
+        margin: 10px;
+      }
+      #outer {
+        background: #f8d7da;
+      }
+      #middle {
+        background: #fff3cd;
+      }
+      #inner {
+        background: #d4edda;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>버블링 vs 캡처링</h1>
+    <p>콘솔을 열고 <strong>초록색 박스(inner)</strong>를 클릭해보세요.</p>
+
+    <div id="outer" class="box">
+      OUTER
+      <div id="middle" class="box">
+        MIDDLE
+        <div id="inner" class="box">INNER (여기를 클릭!)</div>
+      </div>
+    </div>
+
+    <script>
+      // function log(msg) {
+      //   console.log(msg);
+      // }
+
+      const outer = document.getElementById("outer");
+      outer.addEventListener("click", function () {
+        console.log("outer 클릭");
+      });
+
+      const middle = document.querySelector("#middle");
+      middle.addEventListener("click", function (e) {
+        e.stopPropagation(); // 버블링 차단
+      });
+
+      middle.addEventListener(
+        "click",
+        function (e) {
+          console.log("middle 클릭(캡쳐링)");
+        },
+        { capture: true }
+      );
+
+      const inner = document.querySelector("#inner");
+      inner.addEventListener("click", function (e) {
+        e.stopPropagation(); // 버블링 차단
+      });
+
+      inner.addEventListener(
+        "click",
+        function (e) {
+          console.log("middle 클릭(캡쳐링)");
+        },
+        { capture: true }
+      );
+
+      // const middle = document.getElementById("middle");
+      // const inner = document.getElementById("inner");
+
+      // // 버블링 단계 (기본)
+      // outer.addEventListener("click", () => log("버블링: OUTER"));
+      // middle.addEventListener("click", () => log("버블링: MIDDLE"));
+      // inner.addEventListener("click", () => log("버블링: INNER"));
+
+      // // 캡처링 단계 (옵션 {capture: true})
+      // outer.addEventListener("click", () => log("캡처링: OUTER"), {
+      //   capture: true,
+      // });
+      // middle.addEventListener("click", () => log("캡처링: MIDDLE"), {
+      //   capture: true,
+      // });
+      // inner.addEventListener("click", () => log("캡처링: INNER"), {
+      //   capture: true,
+      // });
+    </script>
+  </body>
+</html>

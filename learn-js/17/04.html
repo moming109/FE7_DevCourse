@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>드래그 이벤트 예제</title>
+    <style>
+      body {
+        min-height: 100vh;
+      }
+      #draggable {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        cursor: move; /* 드래그 시 커서 변경 */
+        position: absolute;
+        left: 8px;
+        top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="draggable" draggable="true">드래그 해보세요!</div>
+    <div id="status"></div>
+
+    <script>
+      const draggable = document.getElementById("draggable");
+      const status = document.getElementById("status");
+
+      draggable.addEventListener("dragstart", function (event) {
+        status.textContent = "드래그가 시작되었습니다!";
+        event.dataTransfer.setData("text/plain", "이것은 드래그 중입니다.");
+      });
+
+      document.body.addEventListener("dragover", function (event) {
+        // 기본적으로 모든 요소는 drop 비허용
+        // dragover는 드래그가 발생하는 동안 요소 위에서 계속 호출됨
+        // drop 비허용 취소 -> drop 허용하겠다
+        event.preventDefault();
+      });
+
+      document.body.addEventListener("drop", function (event) {
+        event.preventDefault();
+
+        const x = event.clientX;
+        const y = event.clientY;
+
+        draggable.style.left = x - draggable.offsetWidth / 2 + "px";
+        draggable.style.top = y - draggable.offsetHeight / 2 + "px";
+      });
+
+      draggable.addEventListener("dragend", function (event) {
+        status.textContent = "드래그가 종료되었습니다!";
+      });
+    </script>
+  </body>
+</html>

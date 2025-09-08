@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SPA Example</title>
+    <style>
+      .nav {
+        margin-bottom: 20px;
+      }
+      .nav a {
+        margin-right: 10px;
+        cursor: pointer;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SPA 예제</h1>
+    <div class="nav">
+      <a href="/" data-page="home">Home</a>
+      <a href="/about" data-page="about">About</a>
+      <a href="/contact" data-page="contact">Contact</a>
+    </div>
+    <div id="content">홈 페이지 내용이 여기에 표시됩니다.</div>
+  <body>
+    <script>
+      const content = document.querySelector("#content");
+      function loadPage(page) {
+        const texts = {
+          home: "여기는 홈 화면입니다",
+          about: "이 페이지는 소개 화면입니다.",
+          contact: "이 페이지는 연락처 화면입니다.",
+        };
+        content.innerText = texts[page];
+        history.pushState({ page: page }, null, `/${page}`);
+      }
+
+      window.addEventListener("popstate", function (eve) {
+        console.log(event);
+        const page = event.state?.page || "home";
+        const texts = {
+          home: "여기는 홈 화면입니다",
+          about: "이 페이지는 소개 화면입니다.",
+          contact: "이 페이지는 연락처 화면입니다.",
+        };
+      });
+    </script>
+  </body>
+</html>
