@@ -1,3 +1,4 @@
+// 함수 타입 연습 문제
 {
   // 함수 정의
   const add = (num1: number, num2: number): number => {

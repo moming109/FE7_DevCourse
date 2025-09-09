@@ -1,3 +1,4 @@
+//기본 타입 연습문제
 {
   const test: string = "Hello";
   console.log(test);

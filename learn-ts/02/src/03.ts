@@ -33,9 +33,9 @@
   test.toFixed(20);
 
   function printValue(x: number | string) {
-    console.log(x.toFixed(2));
+    //console.log(x.toFixed(2));
   }
-  printValue(10);
+  printValue(10); //함수 호출을 해도, x의 타입 추론이 불가능. 실행 컨텍스트가 다르기 때문이다.
 }
 
 // 인터섹션 타입 -> &(엠퍼센트)

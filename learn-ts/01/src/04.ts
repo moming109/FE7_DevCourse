@@ -1,3 +1,4 @@
+//기본 타입 연습문제++
 {
   let complexData: {
     id: number;

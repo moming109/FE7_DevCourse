@@ -1,5 +1,5 @@
 // 1. 타입스크립트(확장 문법)
-// 1.1 자바스크립트에 타입(Type)을 추가한 언어
+// 1.1 자바스크립트에 타입(Type)을 추가한 컴파일 언어
 // 1.2 타입(Type) -> 데이터의 종류
 // 1.3 타입스크립트는 자바스크립트의 슈퍼셋(superset)이다.
 // 1.3.1 슈퍼셋은 어떤 집합이나 시스템이 다른 집합이나 시스템을 모두 포함하면서도
@@ -31,7 +31,7 @@
 // 2.1.1 <script type="module" src="..." />
 
 // 2.2 최신 설정을 바꾸는 방법
-// 2.2.1 isolatedModules →> false 
+// 2.2.1 isolatedModules →> false
 // 2.2.2 moduleDetection →> "auto"
 // 2.2.3 <script defer src="..." />
 

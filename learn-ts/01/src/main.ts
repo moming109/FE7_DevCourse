@@ -112,6 +112,6 @@
     members: { id: number; name: string }[];
   } = {
     id: "p1",
-    members,
+    members: [],
   };
 }

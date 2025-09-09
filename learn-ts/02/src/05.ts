@@ -1,9 +1,10 @@
+//함수 타입 연습 문제+
 {
   // 함수 정의
   const sumAllNumbers = (...numArr: number[][]): number[] => {
     let result;
     result = numArr.map((num) => {
-      return num.reduce((sum: number, num: number): number => sum + num, 0);
+      return num.reduce((sum, num) => sum + num, 0);
     });
     return result;
   };
@@ -15,12 +16,10 @@
 
 {
   // 함수 정의
-  const doubleValue = function (
-    value: number | string
-  ): number | string | undefined {
-    //왜 undefined가 들어가야하지??
+  const doubleValue = function (value: number | string): number {
+    //왜 undefined가 들어가야하지?? -> 문제 잘못 읽음
     if (typeof value === "number") return value * 2;
-    else if (typeof value === "string") return value.repeat(2);
+    else return value.length * 2;
   };
 
   // 함수 호출
@@ -35,16 +34,26 @@
   const multiplyArrays: (arr1: number[], arr2: number[]) => number[] =
     function (arr1, arr2) {
       const length = arr1.length > arr2.length ? arr1.length : arr2.length;
-      let result: number[] = [];
+      // let result: number[] = [];
 
-      for (let i = 0; i < length; i++) {
-        const num1 = arr1[i];
-        const num2 = arr2[i];
-        if (typeof num1 === "number" && typeof num2 === "number") {
-          result.push(num1 * num2);
+      // for (let i = 0; i < length; i++) {
+      //   const num1 = arr1[i];
+      //   const num2 = arr2[i];
+      //   if (typeof num1 === "number" && typeof num2 === "number") {
+      //     result.push(num1 * num2);
+      //   }
+      // }
+      // return result;
+
+      //강사님 풀이
+      return Array.from({ length: length }, (_, index) => {
+        const a = arr1[index];
+        const b = arr2[index];
+        if (a !== undefined && b !== undefined) {
+          return a * b;
         }
-      }
-      return result;
+        return 0;
+      });
     };
 
   // 함수 호출
@@ -58,19 +67,21 @@
 {
   // 함수 정의
   const intersection = function (arr1: number[], arr2: number[]): number[] {
-    let result: number[] = [];
-    for (let i = 0; i < arr1.length; i++) {
-      const num1 = arr1[i];
-      for (let j = 0; j < arr2.length; j++) {
-        const num2 = arr2[j];
-        if (typeof num1 === "number" && typeof num2 === "number") {
-          if (num1 === num2) {
-            result.push(num1);
-          }
-        }
-      }
-    }
-    return result;
+    // let result: number[] = [];
+    // for (let i = 0; i < arr1.length; i++) {
+    //   const num1 = arr1[i];
+    //   for (let j = 0; j < arr2.length; j++) {
+    //     const num2 = arr2[j];
+    //     if (typeof num1 === "number" && typeof num2 === "number") {
+    //       if (num1 === num2) {
+    //         result.push(num1);
+    //       }
+    //     }
+    //   }
+    // }
+    // return result;
+    // 강사님 풀이
+    return arr1.filter((num) => arr2.includes(num));
   };
 
   // 함수 호출
@@ -102,7 +113,8 @@
     str1,
     str2
   ) {
-    return str1 + str2;
+    //return str1 + str2;
+    return `${str1}${str2}`;
   };
 
   // 함수 호출
@@ -124,7 +136,8 @@
 {
   // 함수 정의
   const addStringAndNumber = function (str: string, num: number): string {
-    return str + num;
+    //return str + num;
+    return `${str}${num}`;
   };
 
   // 함수 호출
