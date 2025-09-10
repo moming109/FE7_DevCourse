@@ -17,16 +17,19 @@
   interface Car {
     brand: string;
     model: string;
-    start: () => void;
+    start: (this: Car, speed: number) => void;
   }
   const c: Car = {
     brand: "hyundai",
     model: "genesis",
-    start: () => {
-      console.log(`brand: ${c.brand} model: ${c.model} 운행 시작`);
+    //this를 사용해서 명시적으로 표기할 수 있다.
+    start(this: Car, speed) {
+      console.log(
+        `brand: ${this.brand} model: ${this.model} ${speed}운행 시작`
+      );
     },
   };
-  c.start();
+  c.start(100);
 }
 
 //3
@@ -154,6 +157,11 @@
 {
   interface Operation {
     (num1: number, num2: number): number;
+    //함수에 기본적으로 들어가있는 내장 속성들(타입 속성은 이미 지정되어있음)
+    name: string;
+    length: number;
+    caller: any;
+    arguments: any[];
   }
   const add: Operation = (num1, num2) => {
     return num1 + num2;
