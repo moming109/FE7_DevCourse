@@ -1,0 +1,16 @@
+/* link 방식 사용방법 */
+.nanum-brush-script-regular {
+  font-family: "Nanum Brush Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 로컬의 폰트 파일을 사용하는 방법 */
+@font-face {
+  font-family: "Aneromecha";
+  src: url("../asset/ANEROMECHA-Regular.ttf"); /*먼저 적힌 폰트가 우선적으로 적용 */
+}
+
+.Aneromecha {
+  font-family: "Aneromecha";
+}

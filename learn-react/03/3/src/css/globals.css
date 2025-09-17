@@ -1,0 +1,11 @@
+.bg {
+  width: 100%;
+  height: 300px;
+  background: url("/images/drinking-cups.jpg") no-repeat center center;
+}
+
+.bg2 {
+  width: 100%;
+  height: 300px;
+  background: url("../asset/images/drinking-cups.jpg") no-repeat center center;
+}

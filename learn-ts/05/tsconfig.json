@@ -11,7 +11,7 @@
     "module": "commonjs",
     "target": "esnext",
     "types": [],
-    "outDir": "../04/dist",
+    "outDir": "./dist",
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
