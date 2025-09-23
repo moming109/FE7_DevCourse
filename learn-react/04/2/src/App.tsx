@@ -10,11 +10,15 @@ export default function App() {
       <Button onClick={() => console.log("결제")}>결제하기</Button>
       <Button text="결제하기2"></Button> */}
 
-      <TextArea>기본값을 정해보세요.</TextArea>
+      <TextArea type="text" placeholder="기본값을 정해보세요."></TextArea>
       <br></br>
       <Button2 className="bg-[#ed4848] text-blue-800 text-[20px]">Add</Button2>
       <br></br>
-      <Checkbox>텍스트 자유 변경 가능</Checkbox>
+      <Checkbox>
+        <span>
+          I agree with <strong>terms</strong> and <strong>policies</strong>.
+        </span>
+      </Checkbox>
     </>
   );
 }
